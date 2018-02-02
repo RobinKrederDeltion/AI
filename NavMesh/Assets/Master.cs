@@ -57,8 +57,10 @@ public class Master : MonoBehaviour{
         }
     }
 
+    //De IEnumerator zorgt ervoor dat die kan ronddraaien, hierbij doet hij een wiskindige berekening
+    //Hij berekent de plaats waarvan die komt, naar de plaats waar die naar toe moet en de tijd die die nodig heeft deelt die door de tijd die je hebt.
+    public IEnumerator Rotate(Vector3 axis, float angle, float duration = 1.0f)
 
-        public IEnumerator Rotate(Vector3 axis, float angle, float duration = 1.0f) 
     {
             Quaternion from = rb.transform.rotation;
             Quaternion to = rb.transform.rotation;
@@ -89,7 +91,7 @@ public class Master : MonoBehaviour{
 
             if (timer >= wanderTimer)
             {
-                Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
+                Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1); //Hierbij zet hij de willekeurige locatie waarin de AI kan lopen.
                 agent.SetDestination(newPos);
                 timer = 0;
             }
@@ -97,7 +99,7 @@ public class Master : MonoBehaviour{
         
     }
 
-    public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
+    public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask) //En hierbij maakt hij de willekeurige locatie waarin de AI kan lopen
     {
         Vector3 randDirection = Random.insideUnitSphere * dist;
 
