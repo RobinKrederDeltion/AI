@@ -58,7 +58,7 @@ public class Master : MonoBehaviour{
     }
 
 
-        public IEnumerator Rotate(Vector3 axis, float angle, float duration = 1.0f)
+        public IEnumerator Rotate(Vector3 axis, float angle, float duration = 1.0f) 
     {
             Quaternion from = rb.transform.rotation;
             Quaternion to = rb.transform.rotation;
